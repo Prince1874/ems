@@ -25,10 +25,10 @@ const HomeComponant = () => {
       </div>
       {/* Hero Section */}
       <header className="container text-center mt-5">
-        <h1 className="fw-bold">Manage Your Employees Efficiently</h1>
+        <h1 className="fw-bold">Simplify Employee Management</h1>
         <p className="lead text-muted">
-          Our system helps you track employee records, attendance, payroll, and
-          much more with ease.
+          A smart solution to manage employee details, attendance, payroll, and
+          more—all in one place.
         </p>
       </header>
       {/* Features Section */}
@@ -36,18 +36,18 @@ const HomeComponant = () => {
         <div className="row">
           <div className="col-md-4 text-center">
             <i className="bi bi-people display-3 text-primary"></i>
-            <h4 className="mt-3">Employee Records</h4>
-            <p>Store and manage employee data securely.</p>
+            <h4 className="mt-3">Comprehensive Employee Database</h4>
+            <p>Keep all employee information organized and accessible.</p>
           </div>
           <div className="col-md-4 text-center">
             <i className="bi bi-calendar-check display-3 text-primary"></i>
-            <h4 className="mt-3">Attendance Tracking</h4>
-            <p>Monitor employee attendance effortlessly.</p>
+            <h4 className="mt-3">Real-Time Attendance Monitoring</h4>
+            <p>Track attendance seamlessly with automated reports.</p>
           </div>
           <div className="col-md-4 text-center">
             <i className="bi bi-cash-stack display-3 text-primary"></i>
-            <h4 className="mt-3">Payroll Management</h4>
-            <p>Automate salary calculations and payments.</p>
+            <h4 className="mt-3">Effortless Payroll Processing</h4>
+            <p>Ensure timely salary disbursement with accurate calculations.</p>
           </div>
         </div>
       </div>
