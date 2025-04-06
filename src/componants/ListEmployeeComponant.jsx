@@ -41,7 +41,10 @@ const ListEmployeeComponant = () => {
       });
   }
   return (
-    <div className="container">
+    <div
+      style={{ backgroundColor: "#e3f2fd", minHeight: "100vh" }}
+      className="container"
+    >
       <h2 className="text-center">List of Employees</h2>
       <button className="btn btn-info mb-2" onClick={addNewEmployee}>
         Add Employee

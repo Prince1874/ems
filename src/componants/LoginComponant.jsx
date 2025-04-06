@@ -1,16 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const LoginComponant = () => {
   const navigator = useNavigate();
 
-  function list() {
-    navigator("/list");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  function list(e) {
+    e.preventDefault(); // Prevent form refresh
+
+    const validUsers = [
+      { email: "prince123@gmail.com", password: "prince" },
+      { email: "bkbanty2002@gmail.com", password: "banty" },
+      { email: "hr123@gmail.com", password: "hr@123" },
+    ];
+
+    const isValid = validUsers.some(
+      (user) => user.email === email && user.password === password
+    );
+
+    if (isValid) {
+      navigator("/list");
+    } else {
+      alert("Invalid email or password");
+    }
   }
 
-  function register() {
-    navigator("/register");
-  }
   return (
     <div className="container">
       <br /> <br /> <br />
@@ -18,7 +34,7 @@ const LoginComponant = () => {
         <div className="card col-md-6 offset-md-3 offset-md-3">
           <h2 className="text-center">Login</h2>
           <div className="card-body">
-            <form action="">
+            <form>
               <div className="form-group mb-2">
                 <label className="form-label">Email:</label>
                 <input
@@ -26,6 +42,8 @@ const LoginComponant = () => {
                   placeholder="Enter Email"
                   name="email"
                   className="form-control"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div className="form-group mb-2">
@@ -35,13 +53,12 @@ const LoginComponant = () => {
                   placeholder="Enter Password"
                   name="password"
                   className="form-control"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
-              <button className="btn btn-success" onClick={list}>
+              <button className="btn btn-success me-2" onClick={list}>
                 Login
-              </button>
-              <button className="btn btn-success" onClick={register}>
-                Don't have account register
               </button>
             </form>
           </div>
