@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 
 const ListEmployeeComponant = () => {
   const [employees, setEmployees] = useState([]);
-
   const navigator = useNavigate();
 
   useEffect(() => {
@@ -30,30 +29,43 @@ const ListEmployeeComponant = () => {
   }
 
   function removeEmployee(id) {
-    console.log(id);
-
     deleteEmployee(id)
-      .then((response) => {
-        getAllEmployees();
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+      .then(() => getAllEmployees())
+      .catch((error) => console.error(error));
   }
+
+  function goToAttendance() {
+    navigator("/attendance");
+  }
+
+  function goToPayroll() {
+    navigator("/payroll");
+  }
+
   return (
     <div
       style={{ backgroundColor: "#e3f2fd", minHeight: "100vh" }}
-      className="container"
+      className="container py-4"
     >
-      <h2 className="text-center">List of Employees</h2>
-      <button className="btn btn-info mb-2" onClick={addNewEmployee}>
-        Add Employee
-      </button>
-      <table className="table table-striped table-borderd">
+      <h2 className="text-center mb-4">List of Employees</h2>
+
+      <div className="mb-4">
+        <button className="btn btn-primary me-3" onClick={addNewEmployee}>
+          Add Employee
+        </button>
+        <button className="btn btn-success me-3" onClick={goToAttendance}>
+          Track Attendance
+        </button>
+        <button className="btn btn-warning" onClick={goToPayroll}>
+          Payroll
+        </button>
+      </div>
+
+      <table className="table table-striped table-bordered">
         <thead>
           <tr>
             <th>Employee Id</th>
-            <th>Employee Fist Name</th>
+            <th>Employee First Name</th>
             <th>Employee Last Name</th>
             <th>Employee Email</th>
             <th>Actions</th>
@@ -68,7 +80,7 @@ const ListEmployeeComponant = () => {
               <td>{employee.email}</td>
               <td>
                 <button
-                  className="btn btn-warning"
+                  className="btn btn-warning me-2"
                   onClick={() => updateEmployee(employee.id)}
                 >
                   Update
