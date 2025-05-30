@@ -13,7 +13,7 @@ const LoginComponant = () => {
     const validUsers = [
       { email: "prince123@gmail.com", password: "prince" },
       { email: "bkbanty2002@gmail.com", password: "banty" },
-      { email: "hr123@gmail.com", password: "hr@123" },
+      { email: "amank11@gmail.com", password: "aman" },
     ];
 
     const isValid = validUsers.some(
